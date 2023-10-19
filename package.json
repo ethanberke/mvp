@@ -12,7 +12,6 @@
   "scripts": {
     "migrate": "psql -f migration.sql mvp; psql -f seed.sql mvp",
     "dev": "node --watch server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "",

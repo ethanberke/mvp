@@ -34,3 +34,9 @@ app.post("/things", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 })
+
+
+
+
+
+//postgres/localhost/mvp
