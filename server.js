@@ -31,8 +31,8 @@ app.post("/things", (req, res) => {
     }))
 })
 
-app.listen(port, () => {
-    console.log(`Listening on port: ${port}`);
+app.listen(process.env.port, () => {
+    console.log(`Listening on port: ${process.env.port}`);
 })
 
 
