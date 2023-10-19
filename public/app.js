@@ -1,32 +1,56 @@
-console.log("here");
+const form = document.querySelector(".createProfile-form");
+const thingies = document.querySelector(".thingies");
+const numInput = document.querySelector("input[name='num']");
+
+function createUserElement(user) {
+  const p = document.createElement("p");
+  p.addEventListener("click", () => {
+    fetch(`/users/${user.id}`, {
+      method: "DELETE",
+    }).then(() => {
+      p.remove();
+    });
+  });
+  p.innerText = user.num;
+
+  return p;
+}
+
+function getUsers() {
+  fetch("/users")
+    .then((response) => response.json())
+    .then((things) => {
+      thingies.innerText = "";
+      for (let thing of things) {
+        const element = createUserElement(thing);
+        thingies.append(element);
+      }
+    });
+}
+
+getUsers();
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  // Prevent form from trying to auto-submit.
+  event.preventDefault();
 
-    const formData = new formdata(event.target);
-    const num = formData.get("num");
+  // Get data in the form.
+  const formData = new FormData(event.target);
+  const user = formData.get("user");
 
-    //axios 
-
-    fetch("/users", {
-        method: 'POST',
-        body: JSON.stringify({ num }),
-        header: {
-            'Content-Type': 'application/json'
-        }
-    }).then(response => response.json())
-    .then(thing => {    
-    console.log("Submitting form", thing);
-    //make post request to /users
+  fetch("/users", {
+    method: "POST",
+    // We must stringify the body, because fetch won't do it for us.
+    body: JSON.stringify({ user }),
+    headers: {
+      // We must include this, or express doesn't know how to parse the body.
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((user) => {
+      userInput.value = "";
+      getUsers();
+      // figure out what to do here
     });
-}); 
-
-fetch("/users").then((response) => {
-    return response.json();
-}).then((user) => {
-    for (let users of user) {
-        const p = document.createElement("p");
-        p.innerText = user.num;
-        document.body.append(p);
-    }
-})
+});

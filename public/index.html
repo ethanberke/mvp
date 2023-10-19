@@ -7,10 +7,60 @@
     <script defer src="app.js"></script>
 </head>
 <body>
-    <form class="number-form">
-        <label>Number</label>
-        <input type="number" name="num" />
-        <button type="submit">Create Thing</button>
+    <div class="namelookup">
+    <form class="namelookup-form">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname">
+        <input type="submit" value="Submit">
     </form>
+</div><br><br>
+<div class="createProfile">
+    <form class="createProfile-form">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br><br>
+
+        <label for="veteran">Are you a Veteran?</label>
+        <input type="radio"name="ans"value="yes"> Yes
+        <input type="radio"name="ans"value="no"> No
+        <br><br>
+
+        <label for="branch">Which Branch did you serve in?</label> 
+        <select name="branch-names" id="branch-names"> 
+            <option value="Blank"></option> 
+            <option value="Army">Army</option> 
+            <option value="Navy">Navy</option> 
+            <option value="MarineCorps">Marine Corps</option> 
+            <option value="AirForce">Air Force</option> 
+            <option value="SpaceForce">Space Force</option> 
+            <option value="CoastGuard">Coast Guard</option> 
+        </select>
+        <br><br>
+
+        <label for="themesong">Choose your Themesong!</label> 
+        <select name="themesong" id="branch-names"> 
+            <option value="Blank"></option> 
+            <option value="Batman">Batman</option> 
+            <option value="FinalCountdown">Final Countdown</option> 
+            <option value="Jump">Jump</option> 
+            <option value="Mario">Mario</option> 
+            <option value="Superman">Superman</option> 
+            <option value="Hawaii5o">Hawaii Five-O</option> 
+        </select>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+
+
+
+    
+
+
+    <div>thingies</div>
 </body>
 </html>
