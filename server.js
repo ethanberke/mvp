@@ -4,11 +4,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const { port, DATABASE_URL } = process.env;
+const { PORT, DATABASE_URL } = process.env;
 
 const client = new pg.Client({
     connectionString: DATABASE_URL,
-})
+});
 
 await client.connect();
 
@@ -23,16 +23,17 @@ app.get("/users", (req, res) => {
     })
 });
 
-app.post("/things", (req, res) => {
+app.post("/users", (req, res) => {
     const { num } = req.body;
 
-    client.query("INSERT INTO users(num) VALUES (10)", [num].then(result => {
-        res.json(result.rows);
-    }))
+    client.query("INSERT INTO users(num) VALUES ($1) RETURNING *", [num])
+    .then(result => {
+        res.json(result.rows[0]);
+    });
 })
 
-app.listen(process.env.port, () => {
-    console.log(`Listening on port: ${process.env.port}`);
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`);
 })
 
 
