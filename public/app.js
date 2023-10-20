@@ -2,14 +2,18 @@ import playMario from "./songs/mario.js"
 import playSuperman from "./songs/superman.js"
 import playJump from "./songs/jump.js"
 import playBatman from "./songs/batman.js"
-import playHawaii from "./hawaii5o.js"
+import playHawaii from "./songs/hawaii5o.js"
 let playButton = document.querySelector(".playButton");
 playButton.addEventListener('click', function() {
-    playHawaii();
+    playMario();
 })
 
-
-
+const findfnameInput = document.getElementById("findfname");
+const findlnameInput = document.getElementById("findlname");
+const createfnameInput = document.getElementById("createfname");
+const createlnameInput = document.getElementById("createlname");
+const findBtn = document.getElementById("findBtn");
+const createBtn = document.getElementById("createBtn"); 
 const profileInput = document.querySelector("input[name='submit']");
 const profileContainer = document.querySelector(".profileLookup");
 
@@ -22,32 +26,55 @@ function createProfileElement(profile) {
       p.remove();
     });
   });
-//   p.innerText = profile.num;
-//   return p;
+  p.innerText = profile.submit;
+  return p;
 }
 
 
-function getProfiles() {
-  fetch(`/profiles?first_name=${firstName}&last_name=${lastName}`)
-    .then((response) => response.json())
-    .then((profiles) => {
-        // profileContainer.innerHTML = "";
+// function getProfiles(firstName, lastName) {
+//     fetch(`/profiles?first_name=${firstName}&last_name=${lastName}`)
+//         .then((response) => response.json())
+//         .then((profiles) => {
+//             profileContainer.innerHTML = ""; // Clear the existing profiles.
 
-        if (profiles.length === 0) {
-            console.log("No matching profiles found.");
-        } else {
-            profiles.forEach((profile) => {
-                const element = createProfileElement(profile);
-                profileContainer.appendChild(element);
-            });
-        }
+//             if (profiles.length === 0) {
+//                 console.log("No matching profiles found.");
+//             } else {
+//                 profiles.forEach((profile) => {
+//                     const element = createProfileElement(profile);
+//                     profileContainer.appendChild(element);
+//                 });
+//             }
+//         })
+//         .catch((error) => {
+//             console.error('Error fetching profiles:', error);
+//         });
+// }
+// getProfiles();
+
+function searchProfiles(firstName, lastName) {
+    fetch(`/profiles?first_name=${firstName}&last_name=${lastName}`, {
+        method: 'GET'
+    })
+    .then((response) => 
+         response.json())
+    .then((data) => {
+        console.log("Profile data:", data);
     })
     .catch((error) => {
         console.error('Error fetching profiles:', error);
     });
 }
-getProfiles();
 
+findBtn.addEventListener("click", function () {
+    const firstName = fnameInput.value;
+    const lastName = lnameInput.value;
+    searchProfiles(firstName, lastName);
+});
+
+
+// Usage example:
+//searchProfiles('Dili', 'Berkz');
 
 
 
