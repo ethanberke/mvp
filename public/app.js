@@ -1,8 +1,11 @@
 import playMario from "./songs/mario.js"
-
+import playSuperman from "./songs/superman.js"
+import playJump from "./songs/jump.js"
+import playBatman from "./songs/batman.js"
+import playHawaii from "./hawaii5o.js"
 let playButton = document.querySelector(".playButton");
 playButton.addEventListener('click', function() {
-    playMario();
+    playHawaii();
 })
 
 
@@ -10,18 +13,18 @@ playButton.addEventListener('click', function() {
 const profileInput = document.querySelector("input[name='submit']");
 const profileContainer = document.querySelector(".profileLookup");
 
-// function createProfileElement(profile) {
-//   const p = document.createElement("p");
-//   p.addEventListener("click", () => {
-//     fetch(`/profiles/${profile.id}`, {
-//       method: "DELETE",
-//     }).then(() => {
-//       p.remove();
-//     });
-//   });
-// //   p.innerText = profile.num;
-// //   return p;
-// }
+function createProfileElement(profile) {
+  const p = document.createElement("p");
+  p.addEventListener("click", () => {
+    fetch(`/profiles/${profile.id}`, {
+      method: "DELETE",
+    }).then(() => {
+      p.remove();
+    });
+  });
+//   p.innerText = profile.num;
+//   return p;
+}
 
 
 function getProfiles() {

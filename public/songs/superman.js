@@ -1,65 +1,75 @@
-// let conductor = new BandJS();
-// conductor.setTimeSignature(4,4);
-// conductor.setTempo(140);
+let conductor = new BandJS();
 
-// let playButton = document.querySelector(".playButton");
-// playButton.addEventListener('click', function() {
-//     player.play()
-// })
+conductor.setTimeSignature(4, 4);
+conductor.setTempo(76);
 
-// let trumpet = conductor.createInstrument('square');
-// let trumpet2 = conductor.createInstrument('square');
-// let pianoLH = conductor.createInstrument();
-// let pianoRH = conductor.createInstrument();
-// let bass = conductor.createInstrument();
 
-// //Measure 4
-// trumpet.rest('half')
-//     .rest('eighth')
-//     .note('eighth', 'D4')
-//     .note('eighth', 'Eb4')
-//     .note('eighth', 'E4');
+let rightHand = conductor.createInstrument('square', 'oscillators');
+let leftHand = conductor.createInstrument('triangle', 'oscillators');
+let drum = conductor.createInstrument('white', 'noises');
 
-// trumpet2.rest('whole');
+drum.setVolume(50);
 
-// pianoLH.note('quarter', 'Bb2')
-//     .rest('half')
-//     .rest('quarter');
+/**
+ * Intro
+ */
+    // Bar 1
+rightHand.note('quarter', 'G4')
+    .note('tripletEighth', 'G4')
+    .rest('tripletEighth', 'C4')
+    .note('tripletEighth', 'G4')
+    .note('half', "G4");
 
-// pianoRH.rest('whole');
+// Bar2
+rightHand.note('quarter', 'C5')
+    .note('quarter', 'G4')
+    .note('half', 'C4');
 
-// bass.note('quarter', 'Bb2')
-//      .rest('half')
-//      .rest('quarter');
+// Bar 3
+rightHand.note('quarter', 'G4')
+    .note('tripletEighth', 'G4')
+    .rest('tripletEighth', 'C4')
+    .note('tripletEighth', 'G4')
+    .note('half', "G4");
 
-// //Measure 5, Rehearsal A
+// Bar 4
+rightHand.note('sixteenth', 'F4, G4, C5, E5')
+    .rest('eighth')
+    .note('sixteenth', 'G4, B4, D5')
+    .note('dottedHalf', 'G4, B4, D5')
 
-// trumpet.note('quarter', 'F4')
-//     .note('eighth', 'D5')
-//     .note('eighth', 'F4')
-//     .note('eighth', 'D5')
-//     .note('eighth', 'C5')
-//     .rest('eighth')
-//     .note('quarter', 'B4');
+// Bar 5
+    rightHand.note('quarter', 'G4')
+    .note('tripletEighth', 'G4')
+    .rest('tripletEighth', 'C4')
+    .note('tripletEighth', 'G4')
+    .note('half', "G4");
 
-// trumpet2.rest('whole');
+// Bar 6
+rightHand.note('quarter', 'C5')
+    .note('quarter', 'G4')
+    .note('half', 'C4');
 
-// pianoLH.note('quarter', 'D4', 'F4')
-//     .rest('quarter')
-//     .note('quarter', 'C4', 'F#4')
-//     .rest('eighth')
-//     .note('eighth', 'B3', 'G4');
+// Bar 7
+    rightHand.note('tripletEighth', 'Eb4, Ab4, C5')
+    rightHand.note('tripletEighth', 'Eb4, Ab4, C5')
+    rightHand.note('tripletEighth', 'Eb4, Ab4, C5', 'tie')
+    rightHand.note('tripletEighth', 'Eb4, Ab4, C5')
+    rightHand.note('tripletEighth', 'F4, Bb4, D5')
+    rightHand.note('tripletEighth', 'F4, Bb4, D5')
+    rightHand.note('quarter', 'F4, Bb4, D5')
+    rightHand.note('quarter', 'Db5, F5, Ab5');
 
-// pianoRH.note('quarter', 'Bb3')
-//     .rest('quarter')
-//     .note('quarter', 'D3')
-//     .rest('eighth')
-//     .note('eighth', 'G3');
+// Bar 8
+    rightHand.note('tripletEighth', 'C5, D5, F5, G5')
+    rightHand.note('tripletEighth', 'C5, D5, F5, G5')
+    rightHand.note('tripletEighth', 'C5, D5, F5, G5')
+    rightHand.rest('tripletEighth')
+    rightHand.note('tripletEighth', 'C5, D5, F5, G5')
+    rightHand.note('tripletEighth', 'C5, D5, F5, G5')
+    rightHand.note('tripletEighth', 'C5, D5, F5, G5')
 
-// bass.note('dottedQuarter', 'Bb2')
-//      .note('eighth', 'Bb2')
-//      .note('dottedQuarter', 'D3')
-//      .note('eighth', 'D3');
-
-//      let player = conductor.finish();
-
+let player = conductor.finish();
+export default() => {
+    player.play()
+}
