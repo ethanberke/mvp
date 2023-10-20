@@ -11,8 +11,8 @@
     <script type="module"src="mario.js"></script>
 </head>
 <body>
-    <div class="namelookup">
-    <form class="namelookup-form">
+    <div class="profileLookup">
+    <form class="profileLookup-form">
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname">
         <label for="lname">Last name:</label>
@@ -23,17 +23,15 @@
 <div class="createProfile">
     <form class="createProfile-form">
         <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname">
+            <input type="text" id="fname" name="fname">
         <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname"><br><br>
-
+            <input type="text" id="lname" name="lname"><br><br>
         <label for="veteran">Are you a Veteran?</label>
-        <input type="radio"name="ans"value="yes"> Yes
-        <input type="radio"name="ans"value="no"> No
+            <input type="radio"name="ans"value="yes"> Yes
+            <input type="radio"name="ans"value="no"> No
         <br><br>
-
         <label for="branch">Which Branch did you serve in?</label> 
-        <select name="branch-names" id="branch-names"> 
+        <select name="branch-name" id="branch-name"> 
             <option value="Blank"></option> 
             <option value="Army">Army</option> 
             <option value="Navy">Navy</option> 
@@ -41,31 +39,28 @@
             <option value="AirForce">Air Force</option> 
             <option value="SpaceForce">Space Force</option> 
             <option value="CoastGuard">Coast Guard</option> 
-        </select>
-        <br><br>
-
+        </select><br><br>
         <label for="themesong">Choose your Themesong!</label> 
-        <select name="themesong" id="branch-names"> 
+        <select name="themesong" id="themesong-name"> 
             <option value="Blank"></option> 
             <option value="Batman">Batman</option> 
             <option value="FinalCountdown">Final Countdown</option> 
+            <option value="Hawaii5o">Hawaii Five-O</option> 
             <option value="Jump">Jump</option> 
             <option value="Mario">Mario</option> 
             <option value="Superman">Superman</option> 
-            <option value="Hawaii5o">Hawaii Five-O</option> 
         </select>
-        <br><br>
-
-        <input type="submit" value="Submit">
+        <br><br><br><br>
+        <input type="submit" name="submit" value="Submit"id="submit">
     </form>
-    </div>
+</div>
     
     <div class="displayProfile">display profile here
         <button class="playButton">Play!</button>
-    </div>
+    </div><br><br><br><br>
 
 
-    <div>users</div>
+    <div>profiles</div>
 
 
 
@@ -75,8 +70,8 @@
                             <button ng-if="! playing || paused" ng-click="play()" class="btn btn-default"><i class="glyphicon glyphicon-play"></i></button>
                             <button ng-if="! paused && playing" ng-click="pause()" class="btn btn-default"><i class="glyphicon glyphicon-pause"></i></button>
                         </div>
-                        <label for="update-volume">Volume: {{volume}}</label><br>
-                        <input id="update-volume" ng-disabled="muted" type="range" ng-model="volume">   
+                        <!-- <label for="update-volume">Volume: {{volume}}</label><br>
+                        <input id="update-volume" ng-disabled="muted" type="range" ng-model="volume">    -->
             </div>
         </div>
     </div>

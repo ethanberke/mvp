@@ -17,29 +17,31 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 
-app.get("/users", (req, res) => {
-    client.query("SELECT * FROM users").then((result) => {
+app.get("/profiles", (req, res) => {
+    client.query("SELECT * FROM profiles").then((result) => {
         res.json(result.rows);
     })
 });
 
-app.post("/users", (req, res) => {
+app.post("/profiles", (req, res) => {
     const { first_name, last_name, song_id, veteran, branch_id } = req.body;
 
-    client.query(`INSERT INTO users(first_name, last_name, song_id, veteran, branch_id) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-     [first_name, last_name, song_id, veteran, branch_id ]
+    client.query(
+        `INSERT INTO profiles(first_name, last_name, veteran, branch_id, song_id) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+     [first_name, last_name, veteran, branch_id, song_id ]
      )
     .then(result => {
         res.json(result.rows[0]);
-    });
+    })
+    .catch((error) => {
+        console.error("Error creating profile:", error);
+        res.status(500).json({error: "Internal server error"});
+    })
 });
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 })
-
-
-
 
 
 
