@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVP Project</title>
-    <script defer src="app.js"></script>
+    <script type="module" src="app.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="band.min.js"></script>
-    <script src="band.js" defer></script>
+    <!-- <script defer src="band.js" defer></script> -->
+    <script type="module"src="mario.js"></script>
 </head>
 <body>
     <div class="namelookup">
@@ -61,12 +62,27 @@
     
     <div class="displayProfile">display profile here
         <button class="playButton">Play!</button>
-
     </div>
-
-    
 
 
     <div>users</div>
+
+
+
+    <div class="container">
+        <div class="row" ng-cloak>             
+                        <div class="btn-group">
+                            <button ng-if="! playing || paused" ng-click="play()" class="btn btn-default"><i class="glyphicon glyphicon-play"></i></button>
+                            <button ng-if="! paused && playing" ng-click="pause()" class="btn btn-default"><i class="glyphicon glyphicon-pause"></i></button>
+                        </div>
+                        <label for="update-volume">Volume: {{volume}}</label><br>
+                        <input id="update-volume" ng-disabled="muted" type="range" ng-model="volume">   
+            </div>
+        </div>
+    </div>
+
+
+
+
 </body>
 </html>

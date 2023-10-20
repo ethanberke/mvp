@@ -24,13 +24,15 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/users", (req, res) => {
-    const { num } = req.body;
+    const { first_name, last_name, song_id, veteran, branch_id } = req.body;
 
-    client.query("INSERT INTO users(num) VALUES ($1) RETURNING *", [num])
+    client.query(`INSERT INTO users(first_name, last_name, song_id, veteran, branch_id) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+     [first_name, last_name, song_id, veteran, branch_id ]
+     )
     .then(result => {
         res.json(result.rows[0]);
     });
-})
+});
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
