@@ -13,19 +13,19 @@
 <body>
     <div class="profileLookup">
     <form class="profileLookup-form">
-        <label for="fname">First name:</label>
-        <input type="text" id="findfname" name="fname">
-        <label for="lname">Last name:</label>
-        <input type="text" id="findlname" name="lname">
+        <label for="username">Search by Username:</label>
+        <input type="text" id="findusername" name="findusername">
         <input type="submit" value="Search Profile" id="findBtn">
     </form>
 </div><br><br>
 <div class="createProfile">
     <form class="createProfile-form">
         <label for="fname">First name:</label>
-            <input type="text" id="createfname" name="fname">
+            <input type="text" id="createfname" name="fname"><br><br>
         <label for="lname">Last name:</label>
             <input type="text" id="createlname" name="lname"><br><br>
+        <label for="username">Username:</label>
+            <input type="text" id="createuname" name="uname"><br> <br>   
         <label for="veteran">Are you a Veteran?</label>
             <input type="radio"name="ans"value="yes"> Yes
             <input type="radio"name="ans"value="no"> No
@@ -55,26 +55,26 @@
     </form>
 </div>
     
-    <div class="displayProfile">display profile here
+    <div class="container">display profile here
+        <p>This is where names will go</p>
         <button class="playButton">Play!</button>
     </div><br><br><br><br>
 
 
-    <div>profiles</div>
 
 
-
-    <div class="container">
+<!-- 
+    <div class="container">Find purpose for these buttons
         <div class="row" ng-cloak>             
                         <div class="btn-group">
                             <button ng-if="! playing || paused" ng-click="play()" class="btn btn-default"><i class="glyphicon glyphicon-play"></i></button>
                             <button ng-if="! paused && playing" ng-click="pause()" class="btn btn-default"><i class="glyphicon glyphicon-pause"></i></button>
                         </div>
-                        <!-- <label for="update-volume">Volume: {{volume}}</label><br>
-                        <input id="update-volume" ng-disabled="muted" type="range" ng-model="volume">    -->
+                        <label for="update-volume">Volume: {{volume}}</label><br>
+                        <input id="update-volume" ng-disabled="muted" type="range" ng-model="volume">   
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

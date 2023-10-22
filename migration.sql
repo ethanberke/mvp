@@ -1,10 +1,11 @@
-DROP TABLE IF EXISTS users;
+
 DROP TABLE IF EXISTS profiles;
 DROP TABLE IF EXISTS songs;
 DROP TABLE IF EXISTS service_branches;
 
 CREATE TABLE profiles (
     id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     veteran BOOLEAN NOT NULL,
@@ -12,7 +13,7 @@ CREATE TABLE profiles (
     song_id INT NOT NULL
 );
 
-INSERT INTO profiles (first_name, last_name, veteran, branch_id, song_id) VALUES ('John', 'Smith', true, 1, 1);
+INSERT INTO profiles (username, first_name, last_name, veteran, branch_id, song_id) VALUES ('cooldude22', 'John', 'Smith', true, 1, 1);
 
 CREATE TABLE songs (
     id SERIAL PRIMARY KEY,

@@ -8,7 +8,7 @@ let rightHand = conductor.createInstrument('square', 'oscillators');
 let leftHand = conductor.createInstrument('triangle', 'oscillators');
 let drum = conductor.createInstrument('white', 'noises');
 
-drum.setVolume(50);
+rightHand.setVolume(70);
 
 /**
  * Intro
@@ -39,16 +39,16 @@ rightHand.note('sixteenth', 'F4, G4, C5, E5')
     .note('dottedHalf', 'G4, B4, D5')
 
 // Bar 5
-    rightHand.note('quarter', 'G4')
-    .note('tripletEighth', 'G4')
-    .rest('tripletEighth', 'C4')
-    .note('tripletEighth', 'G4')
-    .note('half', "G4");
+    rightHand.note('quarter', 'G3, G4')
+    .note('tripletEighth', 'G3, G4')
+    .rest('tripletEighth', 'C3, C4')
+    .note('tripletEighth', 'G3, G4')
+    .note('half', "G3, G4");
 
 // Bar 6
-rightHand.note('quarter', 'C5')
-    .note('quarter', 'G4')
-    .note('half', 'C4');
+rightHand.note('quarter', 'C4, C5')
+    .note('quarter', 'G3, G4')
+    .note('half', 'C3, C4');
 
 // Bar 7
     rightHand.note('tripletEighth', 'Eb4, Ab4, C5')

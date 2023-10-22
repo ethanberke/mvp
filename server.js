@@ -17,56 +17,57 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 
+//Query for all rows
 app.get("/profiles", (req, res) => {
     client.query("SELECT * FROM profiles").then((result) => {
         res.json(result.rows);
     })
 });
+//Query by id
+// app.get("/profiles/:id", (req, res) => {
+//     const id = Number.parseInt(req.params.id);
+//     client
+//     .query(`SELECT first_name, last_name, veteran, branch_id, song_id FROM profiles WHERE id = $1`, [id])
+//     .then((data) => {
+//         if (data.rows.length == 0){
+//             res.sendStatus(404);
+//         }
+//         res.json(data.rows[0]);
+//     }).catch((err) => {
+//         console.error(err);
+//         res.sendStatus(500);
+//     })
+// })
+//Query by first and last name
 
-app.get("/profiles/:id", (req, res) => {
-    const id = Number.parseInt(req.params.id);
+app.get("/profiles/:username", (req, res) => {
+    const username = req.params.username;
     client
-    .query(`SELECT first_name, last_name, veteran, branch_id, song_id FROM profiles WHERE id = $1`, [id])
+    .query(
+        "SELECT username, first_name, last_name, veteran, branch_id, song_id FROM profiles WHERE username = $1",
+        [username]
+    )
     .then((data) => {
-        if (data.rows.length == 0){
+        if (data.rows.length === 0) {
             res.sendStatus(404);
         }
         res.json(data.rows[0]);
-    }).catch((err) => {
+    })
+    .catch((err) => {
         console.error(err);
         res.sendStatus(500);
-    })
-})
-
-app.get("/profiles", (req, res) => {
-    const { first_name, last_name } = req.query;
-
-    const query = {
-        text: "SELECT first_name, last_name, veteran, branch_id, song_id FROM profiles WHERE first_name = $1 AND last_name = $2",
-        values: [first_name, last_name],
-    };
-
-    client
-        .query(query)
-        .then((data) => {
-            if (data.rows.length === 0) {
-                res.sendStatus(404);
-            }
-            res.json(data.rows[0]);
-        })
-        .catch((err) => {
-            console.error(err);
-            res.sendStatus(500);
-        });
+    });
 });
 
 
+
+
 app.post("/profiles", (req, res) => {
-    const { first_name, last_name, song_id, veteran, branch_id } = req.body;
+    const {username, first_name, last_name, song_id, veteran, branch_id } = req.body;
 
     client.query(
-        `INSERT INTO profiles(first_name, last_name, veteran, branch_id, song_id) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-     [first_name, last_name, veteran, branch_id, song_id ]
+        `INSERT INTO profiles(username, first_name, last_name, veteran, branch_id, song_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+     [username, first_name, last_name, veteran, branch_id, song_id ]
      )
     .then(result => {
         res.json(result.rows[0]);
