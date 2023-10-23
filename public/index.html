@@ -7,7 +7,6 @@
     <script type="module" src="app.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="band.min.js"></script>
-    <!-- <script defer src="band.js" defer></script> -->
     <script type="module"src="mario.js"></script>
 </head>
 <body>
@@ -17,7 +16,7 @@
         <input type="text" id="findusername" name="findusername">
         <input type="submit" value="Search Profile" id="findBtn">
     </form>
-</div><br><br>
+</div><br>
 <div class="createProfile">
     <form class="createProfile-form">
         <label for="fname">First name:</label>
@@ -50,33 +49,14 @@
             <option value="Mario">Mario</option> 
             <option value="Superman">Superman</option> 
         </select>
-        <br><br><br><br>
+        <br><br><br>
         <input type="submit" name="submit" value="Create Profile"id="createBtn">
     </form>
 </div>
-    
+
     <div class="profileContainer">
         <p></p>
     </div>
-
-
-
-
-<!-- 
-    <div class="container">Find purpose for these buttons
-        <div class="row" ng-cloak>             
-                        <div class="btn-group">
-                            <button ng-if="! playing || paused" ng-click="play()" class="btn btn-default"><i class="glyphicon glyphicon-play"></i></button>
-                            <button ng-if="! paused && playing" ng-click="pause()" class="btn btn-default"><i class="glyphicon glyphicon-pause"></i></button>
-                        </div>
-                        <label for="update-volume">Volume: {{volume}}</label><br>
-                        <input id="update-volume" ng-disabled="muted" type="range" ng-model="volume">   
-            </div>
-        </div>
-    </div> -->
-
-
-
 
 </body>
 </html>

@@ -8,6 +8,7 @@ import playFinalCountDown from "./songs/finalcountdown.js"
 const findBtn = document.getElementById("findBtn");
 const profileContainer = document.querySelector(".profileContainer");
 const createProfileForm = document.querySelector(".createProfile-form");
+const profileLookup = document.querySelector('.profileLookup');
 
 function createProfile(event) {
     event.preventDefault();
@@ -47,6 +48,8 @@ function createProfile(event) {
         song_id: songId
     };
 
+    
+
     fetch("/profiles", {
         method: "POST",
         body: JSON.stringify(newProfile),
@@ -65,11 +68,13 @@ function createProfile(event) {
 }
 
 function renderProfile(profile) {
-    createProfileForm.innerHTML = '';
+    createProfileForm.style.display = 'none';
     profileContainer.innerHTML = '';
     profileContainer.innerHTML = `${profile.first_name} ${profile.last_name}`;
     addImage(profile.branch_id);
+    isVeteran(profile.veteran);
     createPlayButton(profile.song_id);
+    profileContainer.style.display = 'block';
 }
 
 
@@ -121,6 +126,8 @@ function addImage(branchId) {
     } else if (branchId === 6) {
         image.src = 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealCoastGuard.png';
     }
+    image.style.maxWidth = '300px';
+    image.style.maxHeight = '300px';
     profileContainer.appendChild(image);
 }
 
@@ -141,10 +148,21 @@ function addSong(songId) {
     }
 }
 
+function isVeteran(veteranId) {
+    if (veteranId === true) {
+        document.body.style.backgroundImage = 'url(https://m.media-amazon.com/images/I/61rogOlUSfL.jpg)'
+    } else {
+        document.body.style.backgroundImage = 'url(https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/06/justice-league-secret-origins.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5)'
+    }
+}
+
 function createPlayButton(songId) {
     const playButton = document.createElement('button');
     playButton.textContent = 'Play Song';
     profileContainer.appendChild(playButton);
+    const pauseButton = document.createElement('button');
+    pauseButton.textContent = "Pause Song";
+    profileContainer.appendChild(pauseButton);
 
     playButton.addEventListener('click', function() {
         addSong(songId);

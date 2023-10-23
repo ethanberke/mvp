@@ -1,7 +1,6 @@
 let conductor = new BandJS();
-
 conductor.setTimeSignature(2, 2);
-conductor.setTempo(180);
+conductor.setTempo(150);
 
 
 let rightHand = conductor.createInstrument('square', 'oscillators');
@@ -473,6 +472,9 @@ leftHand.note('quarter', 'G3')
     .rest('quarter');
 
 drum.rest('whole');
+
+
+
 
 let player = conductor.finish();
 export default() => {

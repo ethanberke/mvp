@@ -1,0 +1,135 @@
+body {
+    /* background-image: url(
+        https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/06/justice-league-secret-origins.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5
+
+    ); */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #1c39bb;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+    font-size: 1.25em;
+}
+.profileLookup {
+        width: 500px;
+        padding: 10px;
+        font-family: "Arial";
+        background-color: rgba(90, 90, 90, 0.987);
+        opacity: 80%;
+        margin: auto;
+        border-radius: 20px;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 5px;
+}
+#findBtn {
+    width: 120px;
+    height: 40px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+  }
+.createProfile {
+    width: 500px;
+    padding: 10px;
+    font-family: "Arial";
+    background-color: #f1f1f1;
+    opacity: 80%;
+    margin: auto;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+#createBtn {
+    width: 120px;
+    height: 40px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+  }
+.profileContainer {
+  display:none;
+  width: flex;
+  font-family: "Arial";
+  background-color: rgba(90, 90, 90, 0.987);
+  opacity: 80%;
+  margin: auto;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.profileContainer button {
+  width: 120px;
+  height: 40px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+/* 
+  .header {
+    width: 800px;
+    font-family: "Arial";
+    background-color: rgba(228, 132, 8, 0.987);
+    opacity: 50%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5px;
+  } */
+
+
+.container {
+        display: none;
+        font-family: "Arial";
+        max-width: 55em;
+        background-color: rgba(177, 126, 5, 0.3);
+        text-align: center;
+        padding: 10px;
+        border-radius: 3em;
+        margin-top: 16px;
+}
+
+.container img {
+  opacity: 1;
+  max-width: 800px;
+  max-height: 800px;
+  border: 2px solid black;
+  margin-top: 18px;
+}
+
+p {
+  color: rgb(0, 0, 0);
+  font-size: 26px;
+  -webkit-text-stroke: .75px black;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  background-color: rgb(127, 127, 127);
+  opacity: 75%;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+
+
+.timing, .cover-art, .controls {
+    margin-bottom: 10px;
+}
+
+.timing span {
+    font-size: 23px;
+}
