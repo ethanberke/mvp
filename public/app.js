@@ -5,17 +5,14 @@ import playBatman from "./songs/batman.js"
 import playHawaii from "./songs/hawaii5o.js"
 import playFinalCountDown from "./songs/finalcountdown.js"
 
-
-
-const finduserNameInput = document.getElementById("findfname");
-const createUsernameInput = document.getElementById("createfname");
 const findBtn = document.getElementById("findBtn");
-const createBtn = document.getElementById("createBtn");
 const profileContainer = document.querySelector(".profileContainer");
 const createProfileForm = document.querySelector(".createProfile-form");
 
-createProfileForm.addEventListener("submit", (event) => {
+function createProfile(event) {
     event.preventDefault();
+
+    const createProfileForm = event.target;
 
     const formData = new FormData(createProfileForm);
     const songName = formData.get('themesong');
@@ -59,14 +56,54 @@ createProfileForm.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((createdProfile) => {
-        //profileContainer.innerHTML = ""; // Clear the existing profiles.
-        //getProfiles(); // Refresh the profiles
         console.log(`New profile data saved: ${JSON.stringify(createdProfile)}`);
+        renderProfile(createdProfile);
     })
     .catch((error) => {
         console.error('Error creating profile:', error);
     });
+}
+
+function renderProfile(profile) {
+    createProfileForm.innerHTML = '';
+    profileContainer.innerHTML = '';
+    profileContainer.innerHTML = `${profile.first_name} ${profile.last_name}`;
+    addImage(profile.branch_id);
+    createPlayButton(profile.song_id);
+}
+
+
+createProfileForm.addEventListener("submit", createProfile);
+
+
+
+
+function searchProfiles(username) {
+    fetch(`/profiles/${username}`)
+        .then((response) => response.json())
+        .then((profile) => {
+        if (profile) {
+            // Display the first profile from the response (assuming you want just one)
+            console.log("Profile data:", profile);
+            renderProfile(profile);
+        } else {
+            console.log("No matching profiles found.");
+        }
+    })
+    .catch((error) => {
+        console.error('Error fetching profiles:', error);
+    });
+}
+
+findBtn.addEventListener("click", function () {
+    event.preventDefault();
+    const findUsername = findusername.value;
+    searchProfiles(findUsername);
+    createProfileForm.innerHTML = '';
+    profileContainer.innerHTML = '';
 });
+
+
 //function to generate image based on profile branch.id
 function addImage(branchId) {
     const image = document.createElement('img');
@@ -87,36 +124,7 @@ function addImage(branchId) {
     profileContainer.appendChild(image);
 }
 
-
-function searchProfiles(username) {
-    fetch(`/profiles/${username}`)
-        .then((response) => response.json())
-        .then((profile) => {
-        if (profile) {
-            // Display the first profile from the response (assuming you want just one)
-            console.log("Profile data:", profile);
-            const fullName = document.createElement('p');
-            fullName.textContent = (`${profile.first_name} ${profile.last_name}`);
-            profileContainer.appendChild(fullName);
-            addImage(profile.branch_id);
-            createPlayButton(profile.song_id);
-        } else {
-            console.log("No matching profiles found.");
-        }
-    })
-    .catch((error) => {
-        console.error('Error fetching profiles:', error);
-    });
-}
-
-findBtn.addEventListener("click", function () {
-    event.preventDefault();
-    const findUsername = findusername.value;
-    searchProfiles(findUsername);
-    createProfileForm.innerHTML = '';
-    profileContainer.innerHTML = '';
-});
-
+//function to assign songs
 function addSong(songId) {
     if (songId === 1) {
         playBatman();
