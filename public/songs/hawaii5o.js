@@ -8,7 +8,8 @@ let leftHand = conductor.createInstrument('square', 'oscillators');
 let drum = conductor.createInstrument('white', 'noises');
 
 drum.setVolume(50);
-
+leftHand.setVolume(50);
+rightHand.setVolume(50);
 /**
  * Intro
  */

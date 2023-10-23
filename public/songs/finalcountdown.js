@@ -9,7 +9,8 @@ let leftHand = conductor.createInstrument('triangle', 'oscillators');
 let drum = conductor.createInstrument('white', 'noises');
 
 drum.setVolume(75);
-leftHand.setVolume(75);
+leftHand.setVolume(50);
+rightHand.setVolume(50);
 /**
  * Intro
  */
