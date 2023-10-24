@@ -5,7 +5,7 @@ conductor.setTempo(120);
 
 
 let rightHand = conductor.createInstrument('square', 'oscillators');
-let leftHand = conductor.createInstrument('triangle', 'oscillators');
+let leftHand = conductor.createInstrument('sawtooth', 'oscillators');
 let drum = conductor.createInstrument('white', 'noises');
 
 drum.setVolume(75);
@@ -146,6 +146,24 @@ rightHand.note('eighth', 'E5')
     leftHand.note('half', 'C3')
     .note('half', 'F2')
 
+//Bar 13
+rightHand.note('dottedHalf', 'E5')
+    .note('sixteenth', 'E5')
+    .note('sixteenth', 'F5')
+    .note('sixteenth', 'E5')
+    .note('sixteenth', 'D5');
+
+leftHand.note('whole', 'E3');
+
+//Bar 14
+rightHand.note('whole', 'E5')
+
+leftHand.note('whole', 'E2')
+
+//Bar 15
+rightHand.rest('whole')
+
+leftHand.note('whole', 'A2, E3')
 let player = conductor.finish();
 export default() => {
     player.play()

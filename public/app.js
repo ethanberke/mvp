@@ -5,8 +5,11 @@ import playBatman from "./songs/batman.js"
 import playHawaii from "./songs/hawaii5o.js"
 import playFinalCountDown from "./songs/finalcountdown.js"
 
+const playButton = document.getElementById("playButton");
+// const pauseButton = document.getElementById("pauseButton");
 const findBtn = document.getElementById("findBtn");
 const profileContainer = document.querySelector(".profileContainer");
+const createProfileContainer = document.querySelector(".createProfile")
 const createProfileForm = document.querySelector(".createProfile-form");
 const profileLookup = document.querySelector('.profileLookup');
 
@@ -48,8 +51,6 @@ function createProfile(event) {
         song_id: songId
     };
 
-    
-
     fetch("/profiles", {
         method: "POST",
         body: JSON.stringify(newProfile),
@@ -68,20 +69,16 @@ function createProfile(event) {
 }
 
 function renderProfile(profile) {
-    createProfileForm.style.display = 'none';
+    createProfileContainer.style.display = 'none';
     profileContainer.innerHTML = '';
     profileContainer.innerHTML = `${profile.first_name} ${profile.last_name}`;
     addImage(profile.branch_id);
     isVeteran(profile.veteran);
     createPlayButton(profile.song_id);
-    profileContainer.style.display = 'block';
+    profileContainer.style.display = 'flex';
 }
 
-
 createProfileForm.addEventListener("submit", createProfile);
-
-
-
 
 function searchProfiles(username) {
     fetch(`/profiles/${username}`)
@@ -104,8 +101,9 @@ findBtn.addEventListener("click", function () {
     event.preventDefault();
     const findUsername = findusername.value;
     searchProfiles(findUsername);
-    createProfileForm.innerHTML = '';
+    createProfileContainer.innerHTML = '';
     profileContainer.innerHTML = '';
+    profileContainer.appendChild(playButton);
 });
 
 
@@ -126,8 +124,6 @@ function addImage(branchId) {
     } else if (branchId === 6) {
         image.src = 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealCoastGuard.png';
     }
-    image.style.maxWidth = '300px';
-    image.style.maxHeight = '300px';
     profileContainer.appendChild(image);
 }
 
@@ -157,14 +153,10 @@ function isVeteran(veteranId) {
 }
 
 function createPlayButton(songId) {
-    const playButton = document.createElement('button');
-    playButton.textContent = 'Play Song';
     profileContainer.appendChild(playButton);
-    const pauseButton = document.createElement('button');
-    pauseButton.textContent = "Pause Song";
-    profileContainer.appendChild(pauseButton);
-
+    // profileContainer.appendChild(pauseButton);
     playButton.addEventListener('click', function() {
         addSong(songId);
     });
 }
+

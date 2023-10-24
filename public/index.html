@@ -9,6 +9,8 @@
     <script src="band.min.js"></script>
     <script type="module"src="mario.js"></script>
 </head>
+
+
 <body>
     <div class="profileLookup">
     <form class="profileLookup-form">
@@ -17,6 +19,7 @@
         <input type="submit" value="Search Profile" id="findBtn">
     </form>
 </div><br>
+
 <div class="createProfile">
     <form class="createProfile-form">
         <label for="fname">First name:</label>
@@ -29,6 +32,7 @@
             <input type="radio"name="ans"value="yes"> Yes
             <input type="radio"name="ans"value="no"> No
         <br><br>
+
         <label for="branch">Which Branch did you serve in?</label> 
         <select name="branch-name" id="branch-name"> 
             <option value="Blank"></option> 
@@ -39,6 +43,7 @@
             <option value="SpaceForce">Space Force</option> 
             <option value="CoastGuard">Coast Guard</option> 
         </select><br><br>
+
         <label for="themesong">Choose your Themesong!</label> 
         <select name="themesong" id="themesong-name"> 
             <option value="Blank"></option> 
@@ -49,13 +54,16 @@
             <option value="Mario">Mario</option> 
             <option value="Superman">Superman</option> 
         </select>
+
         <br><br><br>
         <input type="submit" name="submit" value="Create Profile"id="createBtn">
     </form>
 </div>
 
     <div class="profileContainer">
-        <p></p>
+        <button id="playButton">Play Music</button>
+        <!-- <button id="pauseButton">Pause****</button> -->
+
     </div>
 
 </body>
