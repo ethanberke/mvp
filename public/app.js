@@ -141,10 +141,14 @@ profileLookupForm.addEventListener("submit", function (event) {
 function isVeteran(veteranId) {
     if (veteranId === true) {
         document.body.style.backgroundImage = 'url(https://m.media-amazon.com/images/I/61rogOlUSfL.jpg)'
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundAttachment = 'fixed';
     } else {
         document.body.style.backgroundImage = 'url(https://www.themarysue.com/wp-content/uploads/2014/07/superman-logo-wallpaper-blue-65884.jpg)'
-        const background = document.body;
-        background.style.backgroundPosition = '18px 90px';
+        document.body.style.backgroundPosition = '8px 90px';
+        document.body.style.backgroundPosition = 'auto';
+        document.body.style.backgroundAttachment = 'scroll';
     }
 }
 
