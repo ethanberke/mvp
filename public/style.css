@@ -1,9 +1,9 @@
 body {
-    background-position: center center;
+    /* background-position: 2px 0; */
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
-    background-color: #1c39bb;
+    background-color: #2840ab;
     text-align: center;
     color: rgb(0, 0, 0);
     -webkit-text-stroke: .5px rgb(0, 0, 0);
@@ -11,33 +11,35 @@ body {
     
 }
 .profileLookup {
-        width: 500px;
-        padding: 10px;
+        display:block;
+        width: 700px;
+        padding: 5px;
         font-family: "Arial";
-        /* background-color: rgba(90, 90, 90, 0.987); */
-        opacity: 80%;
+        background-color: #f1f1f1;        opacity: 80%;
         margin: auto;
         border-radius: 20px;
         text-align: center;
         align-items: center;
         margin-bottom: 5px;
-}
+      }
+      
+      #findBtn {
+        width: 120px;
+        height: 40px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 20px;
+      }
 .error-message {
   font-size: 48px;
   color: red;
   -webkit-text-stroke: .5px rgb(0, 0, 0);
 }
 
-#findBtn {
-    width: 120px;
-    height: 40px;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px;
-  }
 .createProfile {
     width: 500px;
-    padding: 10px;
+    margin-top: 10px;
+    padding: 15px;
     font-family: "Arial";
     background-color: #f1f1f1;
     opacity: 80%;
@@ -45,28 +47,27 @@ body {
     border-radius: 20px;
     text-align: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 #createBtn {
     width: 120px;
     height: 40px;
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    /* margin: 5px; */
     border-radius: 20px;
   }
+
   .profileContainer {
     display: none;
     flex-direction: column;
     align-items: center;
     width: 100%;
     font-family: "Arial";
-    /* background-color: rgba(90, 90, 90, 0.987); */
-    /* opacity: 80%; */
     margin: auto;
     border-radius: 20px;
     text-align: center;
     margin-bottom: 5px;
-    padding: 20px;
+    padding: 15px;
     font-size: 3em;
     color: rgb(255, 255, 255);
     -webkit-text-stroke: 2px rgb(0, 0, 0);
@@ -81,12 +82,57 @@ body {
     width: flex;
     height: flex;
     padding: 12px;
-    margin: 10px;
     border-radius: 20px;
     margin: auto;
     -webkit-text-stroke: .5px rgb(0, 0, 0);
+    position: fixed;
+    bottom: 78px;
   }
 
+
+/* Style for the search bar */
+input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for the drop-down menus */
+select {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for the submit buttons */
+input[type="submit"] {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color: #f5f5f5;
+}
+
+input[type="submit"]:hover {
+  background-color: #6fa7e4; /* Change to your desired hover color */
+}
+
+.song-buttons:hover {
+  background-color: #6fa7e4; /* Change to your desired hover color */
+  color: #f5f5f5;
+}
+
+
+
+
+
+
+
+  
 /* 
   .header {
     width: 800px;
@@ -103,7 +149,7 @@ body {
   } */
 
 
-p {
+/* p {
   color: rgb(0, 0, 0);
   font-size: 32px;
   -webkit-text-stroke: .75px black;
@@ -118,4 +164,4 @@ p {
   opacity: 75%;
   border-radius: 12px;
   padding: 8px;
-}
+} */

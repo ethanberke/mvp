@@ -26,14 +26,12 @@ function displayError(message) {
 }
 
 function renderProfile(profile) {
-    createProfileContainer.style.display = 'none';
-    errorMessage.innerHTML = '';
-    profileContainer.innerHTML = '';
     profileContainer.innerHTML = `${profile.first_name} ${profile.last_name}`;
     addImage(profile.branch_id);
     addSong(profile.song_id);
     isVeteran(profile.veteran);
     profileContainer.style.display = 'flex';
+    createProfileContainer.style.display = 'none';
 }
 
 createProfileForm.addEventListener("submit", createProfile);
@@ -115,7 +113,12 @@ function searchProfiles(username) {
         if (profile) {
             // Display the first profile from the response (assuming you want just one)
             console.log("Profile data:", profile);
+            profileContainer.innerHTML = '';
+            errorMessage.innerHTML = '';
+            createProfileContainer.style.display = 'none';
             renderProfile(profile);
+
+
         } else {
             displayError("No matching profiles found");
             console.log('Profile does not exist')
@@ -132,7 +135,6 @@ profileLookupForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const findUsername = findusername.value;
     searchProfiles(findUsername);
-    createProfileContainer.innerHTML = '';
     profileContainer.innerHTML = '';
 });
 
@@ -141,6 +143,8 @@ function isVeteran(veteranId) {
         document.body.style.backgroundImage = 'url(https://m.media-amazon.com/images/I/61rogOlUSfL.jpg)'
     } else {
         document.body.style.backgroundImage = 'url(https://www.themarysue.com/wp-content/uploads/2014/07/superman-logo-wallpaper-blue-65884.jpg)'
+        const background = document.body;
+        background.style.backgroundPosition = '18px 90px';
     }
 }
 
