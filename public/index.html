@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="band.min.js"></script>
     <script type="module"src="mario.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
     <div class="profileLookup">
     <form class="profileLookup-form">
-        <label for="username">Search by Username:</label>
+        <label for="username">Existing Account? Search by Username</label><br>
         <input type="text" id="findusername" name="findusername" minlength="1">
         <input type="submit" value="Search Profile" id="findBtn">
     </form>
@@ -23,19 +26,21 @@
 <div id="errorMessage" class="error-message" style='display:none;'></div>
 
 <div class="createProfile">
+    <p>Create an account to choose your themesong!</p>
+
     <form class="createProfile-form">
+        <label for="username">Username:</label>
+            <input type="text" id="createuname" name="uname" minlength="1"><br> <br>   
         <label for="fname">First name:</label>
             <input type="text" id="createfname" name="fname"><br><br>
         <label for="lname">Last name:</label>
             <input type="text" id="createlname" name="lname"><br><br>
-        <label for="username">Username:</label>
-            <input type="text" id="createuname" name="uname" minlength="1"><br> <br>   
         <label for="veteran">Are you a Veteran?</label>
             <input type="radio"name="ans"value="yes"> Yes
             <input type="radio"name="ans"value="no"> No
         <br><br>
 
-        <label for="branch">Which Branch did you serve in?</label> 
+        <label for="branch">Which Branch did you serve in?</label>
         <select name="branch-name" id="branch-name"> 
             <option value="Blank"></option> 
             <option value="Army">Army</option> 
