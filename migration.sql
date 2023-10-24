@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS service_branches;
 
 CREATE TABLE profiles (
     id SERIAL PRIMARY KEY,
-    username TEXT NOT NULL,
+    username TEXT NOT NULL UNIQUE,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     veteran BOOLEAN NOT NULL,

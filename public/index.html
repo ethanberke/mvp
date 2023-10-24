@@ -15,10 +15,12 @@
     <div class="profileLookup">
     <form class="profileLookup-form">
         <label for="username">Search by Username:</label>
-        <input type="text" id="findusername" name="findusername">
+        <input type="text" id="findusername" name="findusername" minlength="1">
         <input type="submit" value="Search Profile" id="findBtn">
     </form>
 </div><br>
+
+<div id="errorMessage" class="error-message" style='display:none;'></div>
 
 <div class="createProfile">
     <form class="createProfile-form">
@@ -27,7 +29,7 @@
         <label for="lname">Last name:</label>
             <input type="text" id="createlname" name="lname"><br><br>
         <label for="username">Username:</label>
-            <input type="text" id="createuname" name="uname"><br> <br>   
+            <input type="text" id="createuname" name="uname" minlength="1"><br> <br>   
         <label for="veteran">Are you a Veteran?</label>
             <input type="radio"name="ans"value="yes"> Yes
             <input type="radio"name="ans"value="no"> No
@@ -61,10 +63,16 @@
 </div>
 
     <div class="profileContainer">
-        <button id="playButton">Play Music</button>
-        <!-- <button id="pauseButton">Pause****</button> -->
-
+        <div id="songButtons" class="song-buttons">
+            <button id="playBatmanButton" class="song-button">Play Batman</button>
+            <button id="playFinalCountDownButton" class="song-button">Play Final Countdown</button>
+            <button id="playHawaiiButton" class="song-button">Play Hawaii Five-O</button>
+            <button id="playJumpButton" class="song-button">Play Jump</button>
+            <button id="playMarioButton" class="song-button">Play Mario</button>
+            <button id="playSupermanButton" class="song-button">Play Superman</button></div>        
     </div>
-
+    
 </body>
 </html>
+
+

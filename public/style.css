@@ -22,6 +22,12 @@ body {
         align-items: center;
         margin-bottom: 5px;
 }
+.error-message {
+  font-size: 48px;
+  color: red;
+  -webkit-text-stroke: .5px rgb(0, 0, 0);
+}
+
 #findBtn {
     width: 120px;
     height: 40px;
@@ -72,8 +78,8 @@ body {
   }
   
   .profileContainer button {
-    width: 120px;
-    height: 40px;
+    width: flex;
+    height: flex;
     padding: 12px;
     margin: 10px;
     border-radius: 20px;

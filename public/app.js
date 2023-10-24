@@ -5,19 +5,42 @@ import playBatman from "./songs/batman.js"
 import playHawaii from "./songs/hawaii5o.js"
 import playFinalCountDown from "./songs/finalcountdown.js"
 
-const playButton = document.getElementById("playButton");
-// const pauseButton = document.getElementById("pauseButton");
+const playBatmanButton = document.getElementById("playBatmanButton");
+const playFinalCountDownButton = document.getElementById("playFinalCountDownButton");
+const playHawaiiButton = document.getElementById("playHawaiiButton");
+const playJumpButton = document.getElementById("playJumpButton");
+const playMarioButton = document.getElementById("playMarioButton");
+const playSupermanButton = document.getElementById("playSupermanButton");
+
+const errorMessage = document.getElementById("errorMessage")
 const findBtn = document.getElementById("findBtn");
 const profileContainer = document.querySelector(".profileContainer");
 const createProfileContainer = document.querySelector(".createProfile")
 const createProfileForm = document.querySelector(".createProfile-form");
 const profileLookup = document.querySelector('.profileLookup');
+const profileLookupForm = document.querySelector(".profileLookup-form");
+
+function displayError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+}
+
+function renderProfile(profile) {
+    createProfileContainer.style.display = 'none';
+    errorMessage.innerHTML = '';
+    profileContainer.innerHTML = '';
+    profileContainer.innerHTML = `${profile.first_name} ${profile.last_name}`;
+    addImage(profile.branch_id);
+    addSong(profile.song_id);
+    isVeteran(profile.veteran);
+    profileContainer.style.display = 'flex';
+}
+
+createProfileForm.addEventListener("submit", createProfile);
 
 function createProfile(event) {
     event.preventDefault();
-
     const createProfileForm = event.target;
-
     const formData = new FormData(createProfileForm);
     const songName = formData.get('themesong');
     const branchName = formData.get('branch-name');
@@ -41,9 +64,20 @@ function createProfile(event) {
 
     const branchId = branchIdMap[branchName];
     const songId = songIdMap[songName];
+    const username = formData.get('uname');
 
+    if (!username) {
+        console.log('Please enter a username');
+        displayError('Please enter a username');
+        return;
+    }
+
+    // The username is valid and doesn't exist, clear error message
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
+    // Proceed with creating the profile
     const newProfile = {
-        username: formData.get('uname'),
+        username: username,
         first_name: formData.get('fname'),
         last_name: formData.get('lname'),
         veteran: veteranInput,
@@ -68,19 +102,13 @@ function createProfile(event) {
     });
 }
 
-function renderProfile(profile) {
-    createProfileContainer.style.display = 'none';
-    profileContainer.innerHTML = '';
-    profileContainer.innerHTML = `${profile.first_name} ${profile.last_name}`;
-    addImage(profile.branch_id);
-    isVeteran(profile.veteran);
-    createPlayButton(profile.song_id);
-    profileContainer.style.display = 'flex';
-}
-
-createProfileForm.addEventListener("submit", createProfile);
 
 function searchProfiles(username) {
+    if (!username) {
+        displayError('Please enter a username');
+        return;
+    }
+
     fetch(`/profiles/${username}`)
         .then((response) => response.json())
         .then((profile) => {
@@ -89,23 +117,32 @@ function searchProfiles(username) {
             console.log("Profile data:", profile);
             renderProfile(profile);
         } else {
-            console.log("No matching profiles found.");
+            displayError("No matching profiles found");
+            console.log('Profile does not exist')
+        return; 
         }
     })
     .catch((error) => {
         console.error('Error fetching profiles:', error);
+        displayError('Profile does not exist');
     });
 }
 
-findBtn.addEventListener("click", function () {
+profileLookupForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const findUsername = findusername.value;
     searchProfiles(findUsername);
     createProfileContainer.innerHTML = '';
     profileContainer.innerHTML = '';
-    profileContainer.appendChild(playButton);
 });
 
+function isVeteran(veteranId) {
+    if (veteranId === true) {
+        document.body.style.backgroundImage = 'url(https://m.media-amazon.com/images/I/61rogOlUSfL.jpg)'
+    } else {
+        document.body.style.backgroundImage = 'url(https://www.themarysue.com/wp-content/uploads/2014/07/superman-logo-wallpaper-blue-65884.jpg)'
+    }
+}
 
 //function to generate image based on profile branch.id
 function addImage(branchId) {
@@ -130,33 +167,36 @@ function addImage(branchId) {
 //function to assign songs
 function addSong(songId) {
     if (songId === 1) {
-        playBatman();
+        profileContainer.appendChild(playBatmanButton);
     } else if (songId === 2) {
-        playFinalCountDown();
+        profileContainer.appendChild(playFinalCountDownButton);
     } else if (songId === 3) {
-        playHawaii();
+        profileContainer.appendChild(playHawaiiButton);
     } else if (songId === 4) {
-        playJump();
+        profileContainer.appendChild(playJumpButton);
     } else if (songId === 5) {
-        playMario();
+        profileContainer.appendChild(playMarioButton);
     } else if (songId === 6) {
-        playSuperman();
+        profileContainer.appendChild(playSupermanButton);
     }
 }
 
-function isVeteran(veteranId) {
-    if (veteranId === true) {
-        document.body.style.backgroundImage = 'url(https://m.media-amazon.com/images/I/61rogOlUSfL.jpg)'
-    } else {
-        document.body.style.backgroundImage = 'url(https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/06/justice-league-secret-origins.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5)'
-    }
-}
-
-function createPlayButton(songId) {
-    profileContainer.appendChild(playButton);
-    // profileContainer.appendChild(pauseButton);
-    playButton.addEventListener('click', function() {
-        addSong(songId);
-    });
-}
+playBatmanButton.addEventListener('click', function() {
+    playBatman();
+})
+playFinalCountDownButton.addEventListener('click', function() {
+    playFinalCountDown();
+})
+playHawaiiButton.addEventListener('click', function() {
+    playHawaii();
+})
+playJumpButton.addEventListener('click', function() {
+    playJump();
+})
+playMarioButton.addEventListener('click', function() {
+    playMario();
+})
+playSupermanButton.addEventListener('click', function() {
+    playSuperman();
+})
 

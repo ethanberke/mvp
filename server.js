@@ -48,7 +48,9 @@ app.get("/profiles/:username", (req, res) => {
     
     app.post("/profiles", (req, res) => {
         const {username, first_name, last_name, song_id, veteran, branch_id } = req.body;
-        
+        client.query(
+            `SELECT username FROM profiles`
+        )
         client.query(
             `INSERT INTO profiles(username, first_name, last_name, veteran, branch_id, song_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
             [username, first_name, last_name, veteran, branch_id, song_id ]
