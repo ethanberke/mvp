@@ -146,7 +146,7 @@ function isVeteran(veteranId) {
         document.body.style.backgroundAttachment = 'fixed';
     } else {
         document.body.style.backgroundImage = 'url(https://www.themarysue.com/wp-content/uploads/2014/07/superman-logo-wallpaper-blue-65884.jpg)'
-        document.body.style.backgroundPosition = '8px 90px';
+        document.body.style.backgroundPosition = '8px 152px';
         document.body.style.backgroundPosition = 'auto';
         document.body.style.backgroundAttachment = 'scroll';
     }

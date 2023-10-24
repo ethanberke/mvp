@@ -74,8 +74,8 @@ body {
   }
   
   .profileContainer img {
-    max-width: 325px;
-    max-height: 325px;
+    max-width: 300px;
+    max-height: 300px;
   }
   
   .profileContainer button {
