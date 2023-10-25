@@ -1,7 +1,5 @@
 body {
-    /* background-position: 2px 0; */
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
     background-size: cover;
     background-color: #2840ab;
     text-align: center;
@@ -125,43 +123,3 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #6fa7e4;
 }
-
-
-
-
-
-
-
-  
-/* 
-  .header {
-    width: 800px;
-    font-family: "Arial";
-    background-color: rgba(228, 132, 8, 0.987);
-    opacity: 50%;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 30px;
-    text-align: center;
-    align-items: center;
-    margin-bottom: 5px;
-  } */
-
-
-/* p {
-  color: rgb(0, 0, 0);
-  font-size: 32px;
-  -webkit-text-stroke: .75px black;
-  justify-content: center;
-  text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
-  background-color: rgb(127, 127, 127);
-  opacity: 75%;
-  border-radius: 12px;
-  padding: 8px;
-} */
