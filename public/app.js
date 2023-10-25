@@ -13,11 +13,9 @@ const playMarioButton = document.getElementById("playMarioButton");
 const playSupermanButton = document.getElementById("playSupermanButton");
 
 const errorMessage = document.getElementById("errorMessage")
-const findBtn = document.getElementById("findBtn");
 const profileContainer = document.querySelector(".profileContainer");
 const createProfileContainer = document.querySelector(".createProfile")
 const createProfileForm = document.querySelector(".createProfile-form");
-const profileLookup = document.querySelector('.profileLookup');
 const profileLookupForm = document.querySelector(".profileLookup-form");
 
 function displayError(message) {

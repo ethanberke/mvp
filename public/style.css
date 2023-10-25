@@ -15,21 +15,24 @@ body {
         width: 500px;
         padding: 5px;
         font-family: "Arial";
-        background-color: #f1f1f1;        opacity: 80%;
+        background-color: #f1f1f1;        
+        opacity: 80%;
         margin: auto;
         border-radius: 20px;
         text-align: center;
         align-items: center;
         margin-bottom: 5px;
+        margin-top: 10px;
       }
       
-      #findBtn {
+#findBtn {
         width: 120px;
         height: 40px;
         padding: 10px;
         margin: 10px;
         border-radius: 20px;
-      }
+     }
+
 .error-message {
   font-size: 48px;
   color: red;
@@ -53,7 +56,6 @@ body {
     width: 120px;
     height: 40px;
     padding: 5px;
-    /* margin: 5px; */
     border-radius: 20px;
   }
 
@@ -63,10 +65,8 @@ body {
     align-items: center;
     width: 100%;
     font-family: 'Quintessential', serif;
-    /* margin: auto; */
     border-radius: 20px;
     text-align: center;
-    /* margin-bottom: px; */
     padding: 5px;
     font-size: 4em;
     color: rgb(255, 255, 255);
@@ -94,7 +94,6 @@ body {
   }
 
 
-/* Style for the search bar */
 input[type="text"] {
   padding: 10px;
   width: 200px;
@@ -103,7 +102,7 @@ input[type="text"] {
   background-color: rgb(255, 255, 255);
 }
 
-/* Style for the drop-down menus */
+
 select {
   padding: 10px;
   width: 200px;
@@ -112,7 +111,7 @@ select {
   background-color: rgb(255, 255, 255);
 }
 
-/* Style for the submit buttons */
+
 input[type="submit"] {
     border: 1px solid grey;
     border-radius: 5px;
@@ -124,7 +123,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #6fa7e4; /* Change to your desired hover color */
+  background-color: #6fa7e4;
 }
 
 

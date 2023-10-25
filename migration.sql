@@ -13,7 +13,7 @@ CREATE TABLE profiles (
     song_id INT NOT NULL
 );
 
-INSERT INTO profiles (username, first_name, last_name, veteran, branch_id, song_id) VALUES ('cooldude22', 'John', 'Smith', true, 1, 1);
+INSERT INTO profiles (username, first_name, last_name, veteran, branch_id, song_id) VALUES ('eberk', 'Ethan', 'Berk', true, 1, 1), ('eberk2', 'Ethan', 'Berk', true, 2, 2), ('eberk3', 'Ethan', 'Berk', true, 3, 3), ('eberk4', 'Ethan', 'Berk', true, 4, 4), ('eberk5', 'Ethan', 'Berk', true, 5, 5), ('eberk6', 'Ethan', 'Berk', true, 6, 6);
 
 CREATE TABLE songs (
     id SERIAL PRIMARY KEY,

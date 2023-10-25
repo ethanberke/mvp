@@ -5,14 +5,11 @@ conductor.setTempo(160);
 
 let rightHand = conductor.createInstrument('square', 'oscillators');
 let leftHand = conductor.createInstrument('triangle', 'oscillators');
-let drum = conductor.createInstrument('white', 'noises');
 
-leftHand.setVolume(50);
-rightHand.setVolume(50);
-/**
- * Intro
- */
-    // Bar 1
+leftHand.setVolume(60);
+rightHand.setVolume(60);
+
+// Bar 1
 rightHand.note('quarter', 'E5, F#4')
     .note('quarter', 'E5, F#4')
     .rest('quarter')
@@ -300,7 +297,7 @@ leftHand.note('quarter', 'G3')
     .note('quarter', 'C3')
     .rest('quarter');
 
-    //Underwater Theme
+    //*************Underwater Theme****************
 conductor.setTimeSignature(3, 4);
 conductor.setTempo(176);
 
