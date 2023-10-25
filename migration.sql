@@ -20,7 +20,7 @@ CREATE TABLE songs (
     name TEXT
 );
 
-INSERT INTO songs (name) VALUES ('Batman'), ('Final Countdown'), ('Hawaii Five-O'), ('Jump'), ('Mario'), ('Superman');
+INSERT INTO songs (name) VALUES ('Batman'), ('Final Countdown'), ('Hawaii Five-O'), ('Jump'), ('Mario'), ('Superman'), ('Spanish Flea');
 
 CREATE TABLE service_branches (
     id SERIAL PRIMARY KEY,

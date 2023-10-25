@@ -4,6 +4,7 @@ import playJump from "./songs/jump.js"
 import playBatman from "./songs/batman.js"
 import playHawaii from "./songs/hawaii5o.js"
 import playFinalCountDown from "./songs/finalcountdown.js"
+import playSpanishFlea from "./songs/spanishflea.js"
 
 const playBatmanButton = document.getElementById("playBatmanButton");
 const playFinalCountDownButton = document.getElementById("playFinalCountDownButton");
@@ -11,6 +12,7 @@ const playHawaiiButton = document.getElementById("playHawaiiButton");
 const playJumpButton = document.getElementById("playJumpButton");
 const playMarioButton = document.getElementById("playMarioButton");
 const playSupermanButton = document.getElementById("playSupermanButton");
+const playSpanishFleaButton = document.getElementById("playSpanishFleaButton")
 
 const errorMessage = document.getElementById("errorMessage")
 const profileContainer = document.querySelector(".profileContainer");
@@ -55,7 +57,8 @@ function createProfile(event) {
         'Hawaii5o': 3,
         'Jump': 4,
         'Mario': 5,
-        'Superman': 6
+        'Superman': 6,
+        'SpanishFlea': 7
     };
 
     const branchId = branchIdMap[branchName];
@@ -184,6 +187,8 @@ function addSong(songId) {
         profileContainer.appendChild(playMarioButton);
     } else if (songId === 6) {
         profileContainer.appendChild(playSupermanButton);
+    } else if (songId === 7) {
+        profileContainer.appendChild(playSpanishFleaButton);
     }
 }
 
@@ -204,5 +209,8 @@ playMarioButton.addEventListener('click', function() {
 })
 playSupermanButton.addEventListener('click', function() {
     playSuperman();
+})
+playSpanishFleaButton.addEventListener('click', function() {
+    playSpanishFlea();
 })
 
