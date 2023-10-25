@@ -86,7 +86,7 @@ body {
     margin: auto;
     -webkit-text-stroke: .5px rgb(0, 0, 0);
     position: fixed;
-    bottom: 58px;
+    bottom: 30px;
     background-color: #ffffff; 
   }
   .profileContainer button:hover {
