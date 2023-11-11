@@ -1,13 +1,112 @@
-This repo allows a user to create a profile that takes in their username, first name, last name, veteran status, which service branch they served in if they are a veteran, and which song they look like to assign to their profile.
+# Theme Song Profile Creator
 
-Once the profile is created, the container to create a profile disappears and the user's name, a new background, an image of their branch insignia if the user is a veteran, and a music button are displayed on the page.
+## Overview
 
-The user can create multiple profiles and search by username for each one.  They can switch between profiles superfluously to have different backgrounds and names displayed, as well as different songs to be played from the play button.
+https://mvp-theme-song.onrender.com
 
-Each song was made from the Band.js library, a library that incorporates pitches, rhythms, and instruments to create music/sounds. The songs available are Batman Theme, Superman Theme, Final Countdown, Jump, Hawaii Five-O Theme, Mario Theme (with underwater theme too), and Spanish Flea.
+This repository contains the code for a full-stack web application that allows users to create profiles and choose their theme songs based on their military branch and preferences. The application is built using JavaScript, PostgreSQL for the database, HTML, and CSS. It also utilizes the Band.js library for playing theme songs.
 
-Each Song is assigned to it's own Javascript file and is imported to the app.js file.
+## Features
 
-Usernames cannot be repeated in the database and the user cannot submit a blank username, it must have at least one character.
+- **Profile Creation**: Users can create profiles by providing details such as username, first name, last name, veteran status, military branch, and their preferred theme song.
+- **Profile Lookup**: Existing users can be searched by their username to view and listen to their selected theme song.
 
-In the future, I would like to incorporate more backgrounds, like a batman logo, picture of Honolulu for Hawaii Five-O, a picture of Airborne Paratroopers, and more songs for the user to choose from.
+- **Theme Songs**: Users can choose from a selection of theme songs associated with various military branches.
+
+## Technologies Used
+
+- **JavaScript**: The primary programming language for the application logic.
+- **PostgreSQL**: The relational database management system used to store and retrieve user profiles.
+
+- **HTML and CSS**: Responsible for the structure and styling of the user interface.
+
+- **Band.js Library**: Used for playing theme songs within the application.
+
+## How to Run
+
+1. Clone the repository to your local machine.
+
+   ```bash
+   git clone https://github.com/ethanberke/mvp
+   ```
+
+2. Execute the following SQL script:
+
+```sql
+-- Create tables
+CREATE TABLE profiles (
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    veteran BOOLEAN NOT NULL,
+    branch_id INT,
+    song_id INT NOT NULL
+);
+
+CREATE TABLE songs (
+    id SERIAL PRIMARY KEY,
+    name TEXT
+);
+
+CREATE TABLE service_branches (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    imgurl TEXT
+);
+
+-- Insert sample data
+INSERT INTO songs (name) VALUES
+    ('Batman'),
+    ('Final Countdown'),
+    ('Hawaii Five-O'),
+    ('Jump'),
+    ('Mario'),
+    ('Superman'),
+    ('Spanish Flea');
+
+INSERT INTO service_branches (name, imgurl) VALUES
+    ('Army', 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealArmy.png'),
+    ('Marine Corps', 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealMarineCorps.png'),
+    ('Navy', 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealNavy.png'),
+    ('Air Force', 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealAirForce.png'),
+    ('Space Force', 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/SealSpaceForce.png'),
+    ('Coast Guard', 'https://www.defense.gov/portals/1/Page-Assets/branding-guide/armed-forces/sealCoastGuard.png');
+
+
+3. Open the project in your preferred code editor.
+
+4. Run the application by opening the `index.html` file in a web browser.
+
+## Usage
+
+- **Creating a Profile**: Fill out the form in the "Create Profile" section with the required details and click the "Create Profile" button.
+
+- **Searching for a Profile**: Enter an existing username in the "Existing Account? Search by Username" section and click the "Search Profile" button.
+
+- **Listening to Theme Songs**: After creating or searching for a profile, users can click on the corresponding buttons to play their chosen theme song.
+
+## Screenshots
+![Screenshot1](./images/ProfileScreen.png)
+_Caption for Screenshot 1_
+
+![Screenshot2](./images/Veteran.png)
+_Caption for Screenshot 2_
+
+![Screenshot3](./images/NonVeteran.png)
+_Caption for Screenshot 3_
+
+## Contributing
+
+Feel free to contribute to this project by opening issues or submitting pull requests.
+
+## Acknowledgments
+
+- Thanks to [Band.js](https://github.com/meenie/band.js/) for providing the library for playing theme songs.
+
+## Contact
+
+For any inquiries, please contact Ethan Berkebile via email at ethanberkebile@gmail.com.
+
+**Thank you for visiting!** 🚀
+```
