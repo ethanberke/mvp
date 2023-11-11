@@ -88,13 +88,13 @@ INSERT INTO service_branches (name, imgurl) VALUES
 
 ## Screenshots
 ![Screenshot1](./images/ProfileScreen.png)
-_Caption for Screenshot 1_
+_Opening Screen to create profile_
 
 ![Screenshot2](./images/Veteran.png)
-_Caption for Screenshot 2_
+_Example of Veteran Profile_
 
 ![Screenshot3](./images/NonVeteran.png)
-_Caption for Screenshot 3_
+_Example of Non-Veteran Profile__
 
 ## Contributing
 
